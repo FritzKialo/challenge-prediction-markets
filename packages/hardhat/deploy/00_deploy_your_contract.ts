@@ -19,12 +19,14 @@ export default deployScript(
     const { deployer } = env.namedAccounts;
 
     const question = "Will the green car win the race?";
-    const initialLiquidity = parseEther("1");
-    const initialTokenValue = parseEther("0.01");
+    const initialLiquidity = parseEther("0.03");
+    const initialTokenValue = parseEther("0.0003");
     const initialProbability = 50;
     const percentageLocked = 10;
-    const liquidityProvider = deployer;
-    const oracle = deployer;
+    // Your MetaMask account: owner (liquidity provider) and oracle
+    const frontendAddress = "0x2b39f858cbd44530CFe1C34984F6242eA2C01c24";
+    const liquidityProvider = frontendAddress;
+    const oracle = frontendAddress;
 
     const predictionMarket = await env.deploy("PredictionMarket", {
       account: deployer,
